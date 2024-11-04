@@ -105,6 +105,34 @@ The application looks for data files in the following locations:
 1. Custom directory if specified with `--data-dir`
 2. Application resources (default)
 
+## Design Decisions 🎨
+
+- **Simple Search Implementation**: Since the dataset is small (local restaurants), a simple in-memory search is sufficient
+- **CLI instead of REST**: Chose CLI for simplicity and ease of use
+- **No External Database**: Avoided external dependencies for portability and simplicity
+- **DDD, Clean Architecture, and Vertical Slicing**: Separated concerns for better maintainability and testability
+- **Rich Domain Model**: Implemented strong domain types for better validation and type safety
+- **Immutable Objects**: Used immutability for thread safety and reduced bugs
+- **Command Pattern**: Used Picocli for robust CLI handling
+- **Flexible Data Source**: Supports both embedded and external data files for flexibility
+
+## Assumptions 📝
+
+1. Each restaurant offers only one cuisine type
+2. Ratings are whole numbers between 1 and 5
+3. Distances are in miles, between 1 and 10
+4. Prices are in dollars, between \$10 and \$50
+5. Restaurant names and cuisines use standard ASCII characters
+6. CSV files are UTF-8 encoded
+7. Data files are small enough to fit in memory
+
+## Error Handling 🚨
+
+- Invalid input parameters show helpful error messages
+- Missing or invalid data files produce clear error messages
+- Runtime errors are logged with appropriate detail
+- Verbose mode available for detailed error information
+
 ### File Format
 
 #### cuisines.csv
@@ -293,30 +321,8 @@ app/
 ./gradlew test --tests "tech.pedroduarte.gourmand.features.search.SearchServiceTest"
 ```
 
-## Design Decisions 🎨
+## Acknowledgments
 
-- **DDD, Clean Architecture, and Vertical Slicing**: Separated concerns for better maintainability and testability
-- **Custom Search Implementation**: Built custom basic search logic instead of using search engines for simplicity and based on requirements
-- **Immutable Objects**: Used immutability for thread safety and reduced bugs
-- **Flexible Data Source**: Supports both embedded and external data files for flexibility
-- **Command Pattern**: Used Picocli for robust CLI handling
-- **Rich Domain Model**: Implemented strong domain types for better validation and type safety
-- **CLI instead of REST**: Chose CLI for simplicity and ease of use
-- **No External Database**: Avoided external dependencies for portability and simplicity
-
-## Assumptions 📝
-
-1. Each restaurant offers only one cuisine type
-2. Ratings are whole numbers between 1 and 5
-3. Distances are in miles, between 1 and 10
-4. Prices are in dollars, between \$10 and \$50
-5. Restaurant names and cuisines use standard ASCII characters
-6. CSV files are UTF-8 encoded
-7. Data files are small enough to fit in memory
-
-## Error Handling 🚨
-
-- Invalid input parameters show helpful error messages
-- Missing or invalid data files produce clear error messages
-- Runtime errors are logged with appropriate detail
-- Verbose mode available for detailed error information
+- Built as a coding assessment
+- Uses Picocli for CLI handling
+- Inspired by real-world restaurant search needs
