@@ -105,6 +105,24 @@ The application looks for data files in the following locations:
 1. Custom directory if specified with `--data-dir`
 2. Application resources (default)
 
+### File Format
+
+#### cuisines.csv
+```csv
+id,name
+1,American
+2,Chinese
+...
+```
+
+#### restaurants.csv
+```csv
+name,customer_rating,distance,price,cuisine_id
+Deliciousgenix,4,1,10,11
+Herbed Delicious,4,7,20,9
+...
+```
+
 ## Design Decisions 🎨
 
 - **Simple Search Implementation**: Since the dataset is small (local restaurants), a simple in-memory search is sufficient
@@ -132,24 +150,6 @@ The application looks for data files in the following locations:
 - Missing or invalid data files produce clear error messages
 - Runtime errors are logged with appropriate detail
 - Verbose mode available for detailed error information
-
-### File Format
-
-#### cuisines.csv
-```csv
-id,name
-1,American
-2,Chinese
-...
-```
-
-#### restaurants.csv
-```csv
-name,customer_rating,distance,price,cuisine_id
-Deliciousgenix,4,1,10,11
-Herbed Delicious,4,7,20,9
-...
-```
 
 ## Search Algorithm 🔍
 
