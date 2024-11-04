@@ -30,7 +30,7 @@ A command-line tool to help you find the perfect local restaurant for your next 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/gourmand-cli.git
+git clone https://github.com/pedrohsduarte/gourmand-cli.git
 cd gourmand-cli
 ```
 
