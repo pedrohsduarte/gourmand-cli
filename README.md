@@ -44,7 +44,7 @@ cd gourmand-cli
 ./gradlew shadowJar
 ```
 
-The executable JAR will be created at `build/libs/gourmand.jar`
+The executable JAR will be created at `app/build/libs/gourmand.jar`
 
 ## Usage 💡
 
