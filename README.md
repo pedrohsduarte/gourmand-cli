@@ -302,6 +302,7 @@ app/
 - **Command Pattern**: Used Picocli for robust CLI handling
 - **Rich Domain Model**: Implemented strong domain types for better validation and type safety
 - **CLI instead of REST**: Chose CLI for simplicity and ease of use
+- **No External Database**: Avoided external dependencies for portability and simplicity
 
 ## Assumptions 📝
 
